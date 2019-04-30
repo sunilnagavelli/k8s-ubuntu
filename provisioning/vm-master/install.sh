@@ -1,6 +1,6 @@
 #!/bin/bash
 apt-get update -y
-apt-get install figlet
+apt-get install -y figlet
 figlet MASTER
 
 echo "[TASK 2] Start master"
@@ -17,22 +17,21 @@ echo "[TASK 3] Install Calico"
 echo "[TASK 4] Display PODS"
  kubectl get pods --all-namespaces
 
-
 echo "[TASK 5] Install kubeconfig"
  mkdir -p $HOME/.kube
- sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
- sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  chown $(id -u):$(id -g) $HOME/.kube/config
 
 echo "[TASK 6] Install Dashboard"
- kubectl apply -f kubernetes-dashboard.yaml
- kubectl apply -f kubernetes-dashboard-rbac.yaml
+kubectl apply -f kubernetes-dashboard.yaml
+kubectl apply -f kubernetes-dashboard-rbac.yaml
 
 echo "[TASK 7] Display All Services"
- kubectl get services -n kube-system 
+kubectl get services -n kube-system 
 
 figlet NFS
- apt-get install -y nfs-kernel-server
- apt-get install -y nfs-common
+apt-get install -y nfs-kernel-server
+apt-get install -y nfs-common
 
 mkdir -p /mnt/storage
 cat >>/etc/hosts<<EOF
@@ -41,5 +40,4 @@ EOF
 systemctl restart nfs-kernel-server
 exportfs -a
 
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+chown $(id -u):$(id -g) $HOME/.kube/config

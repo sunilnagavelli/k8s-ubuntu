@@ -3,7 +3,7 @@
 figlet WORKER
 
 figlet NFS
-apt-get install nfs-common
+apt-get install -y nfs-common
 
 echo "[TASK 1] Start the services"
 systemctl start docker && systemctl enable docker

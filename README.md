@@ -1,5 +1,5 @@
 
-# k8s-installation-ubuntu
+# k8s-on-ubuntu
 <img src=https://user-images.githubusercontent.com/40353788/56882169-7868c100-6a80-11e9-9d9f-be75a3e8ab83.png height=250 width=250>
 
 ## About
@@ -58,7 +58,7 @@
 
 ## ***Step 2***
 
-***Copy k8s-installation-ubuntu folder to all master/worker nodes***
+***Copy k8s-on-ubuntu folder to all master/worker nodes***
 
 * `192.168.1.100 (k8smaster)`
 * `192.168.1.101 (k8sworker1)`
@@ -69,7 +69,7 @@
 
 ***Unix Command!!!***
 
-`$ chmod +x -R k8s-installation-ubuntu` 
+`$ chmod +x -R k8s-on-ubuntu` 
 
 
 ## ***Step 3***
@@ -88,7 +88,7 @@
 
   ***Unix Command!!!***
   
- `$ k8s-installation-ubuntu/provisioning/prerequisites/install.sh`
+ `$ k8s-on-ubuntu/provisioning/prerequisites/install.sh`
 
 
 ## ***Step 4***
@@ -112,7 +112,7 @@
 
 ***Unix Command!!!***
 
-`$ cd k8s-installation-ubuntu/provisioning/vm-master`
+`$ cd k8s-on-ubuntu/provisioning/vm-master`
 
 `$ ./install.sh`
 
@@ -135,7 +135,7 @@
 
   ***Unix Command!!!***
   
-`$ cd k8s-installation-ubuntu/provisioning/vm-worker`
+`$ cd k8s-on-ubuntu/provisioning/vm-worker`
 
 `$ ./install.sh`
 

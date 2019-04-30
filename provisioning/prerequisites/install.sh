@@ -23,7 +23,7 @@ apt-get install openssh-server -y
 
 echo "[TASK 4] Install Docker"
 apt-get install ca-certificates curl apt-transport-https gnupg-agent software-properties-common -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-key fingerprint 0EBFCD88
 add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -44,7 +44,7 @@ apt-get install -y kubelet kubeadm kubectl
 sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
 echo "[TASK 7] Start and enable servcies"
-sudo service docker start
-sudo usermod -aG docker ${USER}
+service docker start
+usermod -aG docker ${USER}
 
-echo "Installation completed"
+echo "Installation completed, You might want to re-login"
