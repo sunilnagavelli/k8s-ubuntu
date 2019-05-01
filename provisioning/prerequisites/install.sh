@@ -7,7 +7,7 @@ echo "[TASK 1] Add hosts to etc/hosts"
 echo "">>/etc/hosts
 echo "K8s Config">>/etc/hosts
 
-input="../hosts.properties"
+input="../../hosts.properties"
 while IFS= read -r host
   do
     host_name=$(echo $host | awk -F"=" '{print $1}');

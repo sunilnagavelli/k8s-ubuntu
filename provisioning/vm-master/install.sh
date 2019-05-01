@@ -4,13 +4,16 @@ apt-get install -y figlet
 figlet MASTER
 
 echo "[TASK 2] Start master"
-kubeadm init --ignore-preflight-errors all --pod-network-cidr=10.0.0.0/16 --token-ttl 0
+kubeadm init --ignore-preflight-errors all --pod-network-cidr=192.168.2.10/24 --token-ttl 0
 
 echo "[TASK 3] Install Calico"
+if [ -f calico.yaml ]; then
+  echo 'proceeding with the existing calico config'
+else
  curl \
    https://docs.projectcalico.org/v3.6/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml \
    -O
- POD_CIDR=10.0.0.0/16
+ POD_CIDR=92.168.2.10/24
  sed -i -e "s?192.168.0.0/16?$POD_CIDR?g" calico.yaml
  kubectl apply -f calico.yaml
 
